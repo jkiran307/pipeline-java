@@ -5,15 +5,6 @@ strategy:
   matrix:
     linux:
       imageName: "ubuntu-latest"
-    mac:
-      imageName: "macOS-latest"
-    windows:
-      imageName: "windows-latest"
-    jdk10:
-      jdkVersion: "1.10"
-    jdk11:
-      jdkVersion: "1.11"
-  maxParallel: 3
 
 pool:
   vmImage: $(imageName)
@@ -24,7 +15,7 @@ steps:
      mavenPomFile: 'pom.xml'
      mavenOptions: '-Xmx3072m'
      javaHomeOption: 'JDKVersion'
-     jdkVersionOption: $(jdkVersion)
+     jdkVersionOption: '1.11'
      jdkArchitectureOption: 'x64'
      publishJUnitResults: false
      testResultsFiles: '**/surefire-reports/TEST-*.xml'
