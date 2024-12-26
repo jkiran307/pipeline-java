@@ -1,11 +1,11 @@
 trigger:
  - main
 
+
 strategy:
   matrix:
     linux:
       imageName: "ubuntu-latest"
-
 pool:
   vmImage: $(imageName)
  
