@@ -1,11 +1,11 @@
 trigger:
  - main
 
+
 strategy:
   matrix:
     linux:
       imageName: "ubuntu-latest"
-
 pool:
   vmImage: $(imageName)
  
@@ -20,3 +20,5 @@ steps:
      publishJUnitResults: false
      testResultsFiles: '**/surefire-reports/TEST-*.xml'
      goals: 'package'
+ - script:
+     echo "Hello World"
