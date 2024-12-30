@@ -1,0 +1,68 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: BuildApp
+  displayName: Build App
+  jobs:
+  - job: BuildFrontendApp
+    displayName: Build Frontend App
+    steps:
+    - script: echo Build Frontend App
+      displayName: Build Frontend App
+    - script: echo Testing Build Frontend App
+      displayName: testing Build Frontend App
+
+  - job: BuildBackendApp
+    displayName: Build Backend App
+    steps:
+    - script: echo Build Backend App
+      displayName: Build Backend App
+    - script: echo Testing Build Backend App
+      displayName: testing Build Backend App
+
+- stage: DeployAppDev
+  displayName: Deploy App in Dev
+  jobs:
+  - job: DeployFrontendAppDev
+    displayName: Deploy Frontend App in Dev environment
+    steps:
+    - script: echo Deploy Frontend App in Dev environment
+      displayName: Deploy Frontend App in Dev environment
+    - script: echo Testing Deploy Frontend App in Dev environment
+      displayName: testing Deploy Frontend App in Dev environment
+
+  - job: BuildBackendAppDev
+    displayName: Build Backend App in Dev environment
+    steps:
+    - script: echo Deploy Backend App in Dev environment
+      displayName: Deploy Backend App in Dev environment
+    - script: echo Testing Deploy Backend App in Dev environment
+      displayName: testing Deploy Backend App in Dev environment
+
+- stage: DeployAppProd
+  displayName: Deploy App in Prod
+  jobs:
+  - job: DeployFrontendAppProd
+    displayName: Deploy Frontend App in Prod environment
+    steps:
+    - script: echo Deploy Frontend App in Prod environment
+      displayName: Deploy Frontend App in Prod environment
+    - script: echo Testing Deploy Frontend App in Prod environment
+      displayName: testing Deploy Frontend App in Prod environment
+
+  - job: BuildBackendAppProd
+    displayName: Build Backend App in Prod environment
+    steps:
+    - script: echo Deploy Backend App in Prod environment
+      displayName: Deploy Backend App in Prod environment
+    - script: echo Testing Deploy Backend App in Prod environment
+      displayName: testing Deploy Backend App in Prod environment
